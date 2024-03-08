@@ -6,5 +6,5 @@ class AbstractAPIWorker(ABC):
         Абстрактный класс для работы с API сервиса с вакансиями
     """
     @abstractmethod
-    def get_vacancies(self):
+    def get_vacancies(self, key_word):
         pass
