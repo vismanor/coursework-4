@@ -36,13 +36,14 @@ class Vacancy:
                 return False
 
     def get_salary_display(self) -> str:
-        if self.salary_min is not None:
-            if self.salary_max is not None:
+        if self.salary_min is not None:  # если минималка есть
+            if self.salary_max is not None:  # если максималка есть
                 return f"от {self.salary_min} до {self.salary_max} руб."
-            else:
+            else:  # если максималки нет
                 return f"от {self.salary_min} руб."
-        else:
-            return "данные о заработной плате отсутствуют"
+        if self.salary_max is not None:
+            return f"до {self.salary_max} руб."
+        return "данные о заработной плате отсутствуют"
 
     def check_salary(self, salary):
         if isinstance(salary, str) and '-' in salary:
@@ -52,6 +53,9 @@ class Vacancy:
         elif isinstance(salary, int):
             self.salary_min = salary
             self.salary_max = salary
+        elif isinstance(salary, dict):
+            self.salary_min = salary.get('from')
+            self.salary_max = salary.get('to')
         else:
             self.salary_min = None
             self.salary_max = None
