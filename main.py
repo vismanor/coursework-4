@@ -45,7 +45,7 @@ def user_interactions():
     json_file_manager.del_data_dict()
 
     # 3 — Получаем поисковый запрос пользователя
-    key_word = str(input("Приветствую! \nПомогу найти работу мечты :) \nВведите ключевое слово для поиска: "))
+    key_word = str(input("Введите ключевое слово для поиска: "))
 
     # 4 — Создаем экземпляр класса NewVacancyFormat,
     # передавая в него экземпляр класса ConnectAPI и ключевое слово
@@ -94,4 +94,5 @@ def user_interactions():
 
 
 if __name__ == "__main__":
+    print('Приветствую! \nПомогу найти работу мечты :)')
     user_interactions()
